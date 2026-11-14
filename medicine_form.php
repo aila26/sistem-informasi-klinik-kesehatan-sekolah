@@ -26,7 +26,7 @@ if ($isEdit && $_SERVER['REQUEST_METHOD'] !== 'POST') {
     $stmt = $db->prepare('SELECT * FROM medicines WHERE medicine_id = ?');
     $stmt->bind_param('i', $id);
     $stmt->execute();
-    $row = $stmt->get_result->fetch_assoc();
+    $row = $stmt->get_result()->fetch_assoc();
     $stmt->close();
     if (!$row) {
         flash_set('error', 'Data obat tidak ditemukan.');
